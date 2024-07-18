@@ -1,1 +1,354 @@
-<h1> hola mundo </h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIENVENIDO A MI PORTAFOLIO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #444643;
+            margin: 0;
+            padding: 0;
+            text-align: justify;
+            color: #fdfdfd;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEiam-QEsFSvGC7TUHaqKuIhor-MEYWr-8L7PH2n_M-Yl4vhv-NtyhAUraDvqgsB-i9BstFTrVIsY1au76pS-WuEzZZcIBK-K8GifyZopsE6GifnAZyyeO5Fz-vCzS63FEl0yUfHylbPuN7k3eFfgwG8ZlMXjQ0ThK3fCENkv5onwVjUkJxW7HeWJyXViuk');
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 255, 255);
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        .header * {
+            position: relative;
+            z-index: 2;
+        }
+        .header img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: filter 0.3s ease;
+
+        }
+        .header img:hover {
+            filter: blur(5px);
+        }
+        .nav {
+            position: absolute;
+            right: 20px;
+            nav-down: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .boton {
+            display: inline-block;
+            padding: 10px;
+            color: #f8f6f6;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            background-color: #686e6c;}
+        
+        .boton:hover {
+            background-color: rgba(209, 81, 149, 0.7);
+            transform: translateX(-3px);
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background-color: #000000;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h2 {
+            color: #f5f3f3;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-content {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            transition: bottom 0.3s ease-in-out;
+            max-height: calc(100% - 60px);
+            overflow-y: auto;
+        }
+        .card:hover .card-content {
+            bottom: 0;
+        }
+        .card p, .card ul {
+            color: #050505;
+            margin: 0;
+        }
+        .card:nth-child(1) { background-color: #686e6c; }
+        .card:nth-child(2) { background-color: #686e6c; }
+        .card:nth-child(3) { background-color: #686e6c; }
+        .card:nth-child(4) { background-color: #686e6c; }
+        .card:nth-child(5) { background-color: #686e6c;}
+        .card:nth-child(6) { background-color: #686e6c; }
+        .card:nth-child(7) { background-color: #686e6c;}
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+            
+        }
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .carousel h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 16.66%; /* 100% / 6 items */
+            box-sizing: border-box;
+            padding: 0 10px;
+            text-align: center;
+        }
+        .carousel-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 30px;
+        }
+        .carousel-item p {
+            margin: 0;
+            font-size: 20px;
+        }
+        .carousel-item {
+    min-width: 33.33%; /* Cambiado de 16.66% a 33.33% para mostrar 3 elementos a la vez */
+    box-sizing: border-box;
+    padding: 0 50px;
+    text-align: center;
+}
+.carousel-item img {
+    width: 200px; /* Tamaño fijo más grande */
+    height: 200px; /* Tamaño fijo más grande */
+    margin-bottom: 5px;
+    border-radius:10px; /* Opcional: añade esquinas redondeadas */
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="nav">
+            <a href="#" class="boton nav-boton">INICIO</a>
+            <a href="#acerca-de-mi" class="boton nav-boton">ACERCA DE MI</a>
+            <a href="#habilidades-tecnicas" class="boton nav-boton">HABILIDADES</a>
+            <a href="#experiencia" class="boton nav-boton">EXPERIENCIA</a>
+            <a href="#servicios" class="boton nav-boton">SERVICIOS</a>
+            <a href="#contacto" class="boton nav-boton">CONTACTO</a>
+            <a href="https://www.stack-ai.com/embed/913ab5a9-a776-40a4-9e20-6a0622eae449/3b7244aa-63a3-4984-8b96-fc38b6b19519/664f8137915b6eea6ddc3607" class="boton nav-boton">CHT.BOY.ZAI</a>
+        </nav>
+        
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgmSGMbCH3WDtGTvXjc_Gu3kJJEe6BRsDIA48IqdqvXe54uGdDIUOJrg_1rkBZrVeWj1ZAJ4MPhdCspeDwYUMeY6mPPNrRASTm0vpHd8usKkA22f0GnJyYMduaF0H0Fs9hs2ZxIhdYt_mdFy8xWrMhiLBTqhzIfkFw1R_hthm2qzMpAUIDA4ApRyEjTkz0"alt="zulma" width="400" height="400">
+        <h1>ZULMA CISNEROS</h1>
+        <h2>ESTUDIANTE: TÉCNICO EN SISTEMAS INFORMÁTICOS</h2>
+    </div>
+    <div class="carousel" id="habilidades-carousel">
+        <h1>HABILIDADES</h1>
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhN80W_ECrTLZvVYZvdeypEqazacjaMNpET04vmpuFmhbC7pZcS-9-4SdPPscB49O2oN4e6-HvXKkbguV9W840TBh1b9LkCt1SqnB1i-7_7i99bM5Kr4t41Fphpni7rRu0SrwMG_O3vzFmRz0Mp9FYt69oOCK9L-7KidRnEFaATBYmoS7OVz7sjdYfv73k" alt="PowerPoint">
+                <p>PowerPoint</p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgiO3DiO_DynMAqzvEYubqi0u96ezzuuOf38U0aypoteC4bLFDDrAaDzlvPQP_qnvyDuspvA5vkPPA59PmDshuYaX08kVo8hXH8mPpmbQe4k_TYfByS8EFT6ox0F3JEBsiGE4LYrR6v1JjwWLFSXDDaHrhWjGk2SiembaVQryRkotUDS-xEGc2sG5jhMyw" alt="Word">
+                <p>Word</p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh8T-p-69pe9eeaL7vUYoeNZQbCLTIzhtfANRa2l3n5yMU-gCZJCJK-7QLj2_9Oa5eLZ4aF6EL06bmPqi5sdL16h5z6lXu9YAW3lJFeuqJOXZtsUkF-gqV4V2pXEN1YY4catZyyetWRDKNRQAQ8b_SwMC1zOibw9sBXyz-7zUl72mnBEU8kPcbShYL1RrU" alt="Mantenimiento de PC">
+                <p>Mantenimiento de PC</p>
+            </div>
+
+
+            <div class="carousel-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiid648uoAqVrCuVfhevFdGGwMFjr7Y0uqp0kxLvtwxt5s5hqd7cBR0xHlrRdgSVHE2JEb55XAxAZ_GZI2KfoBAsDcgCGscbjhLoDdLN-0fIx0tSn04dP8fGDbODxuATK3KM2RH1M5q3kRfx7zMlzbLqdzkpx0AT_ryJJWBSZVBmweZ9JnfrVG_6UwmLiA" alt="Excel">
+                <p>Excel</p>
+            </div>
+            <div class="carousel-item">
+        </div>
+    </div>
+
+    <div class="carousel" id="intereses-carousel">
+        <h1>INTERESES</h1>
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgw3hwEyVGCmosP5wY98w82JdTXeNUenF0b_tWvRUIgqat43_jHhES-KcTnB3H58S-QSguyfhUPbrxAKhfaKIhoa3y-MYmkZ_pf0VuCbnpjcipes31kjopA2jc14WExomCQEvNWeLmU2RbQ_Sx-CoopyA2nC97_VtkpqqCIoSolYgSwVQiXLRk--k2KyfU" alt="Música">
+                <p>Música</p>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiP1EYqMUeI9KR6n84sVp6YNzXIFXNhddvEylSzrNjAvZr7MJVUK-vl3tyavxTJFpaPxk2U2Yf24FQQUhq7ihnxgvLqOl6XwR-_1KFVpCYEUkDYZf1dCvZ0eZ3J6EHM1GK26FHOCzwPCRy7ZGWr9W-LAv8ZFrs2LMM2sE65UBmYqQIbX-TSBP_jlANKMSw" alt="Inteligencia Artificial">
+                <p>Inteligencia Artificial</p>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhSN8S65Vg5jH9u-arJi7VhSjAcvBqZ66wyN5N3eVottALOzywYHiFddr1KTYwYcm7j-8Dwl7LHu8fQz9bFGiTf6S0hOr9HJ2mcG_s0xBpqDwmD4lFqmcN0-i7gio3WFCcPxGI7YQqoukh9qlOaHCZ9NXvHrKDCa5sqv6G1wAFAQs_Ldz1Bsh_aHuqEC8w" alt="Desarrollo de Apps">
+                <p>Desarrollo de Apps</p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi6_EhaShMJdyjRiTBC7sCKsJNqUBUzedavTVGkRYm7aNCQfSjRkfJVLzXMbUOdIY8dwHJrxvryx39VljBKQc2HEcqj08fWLZmI1FnuCUHz-Zebv_hIuSBtfF_xPvU8r5baxifAg4S-HVjY5SX1f_snXIZ_u-ioZfKeXeHAs8BWK8mjjGx9_1E4EFovyUE" alt="Sistemas Operativos">
+                <p>Sistemas Operativos</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div id="acerca-de-mi" class="card">
+            <h2>ACERCA DE MI</h2>
+            <div class="card-content">
+                <p>Soy estudiante de sistemas informáticos. Estoy aprendiendo cómo funcionan las computadoras y la tecnología, a resolver problemas y crear soluciones útiles. Mi objetivo es mejorar cómo usamos la tecnología en nuestra vida diaria.</p>
+            </div>
+        </div>
+        <div id="habilidades-tecnicas" class="card">
+            <h2>HABILIDADES TÉCNICAS</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Mantenimiento preventivo de hardware y software</li>
+                    <li>Instalación de drivers de impresoras G3160 y G3170</li>
+                    <li>Ensamblaje y desensamblaje de computadoras</li>
+                    <li>Diagnóstico y solución de problemas de hardware</li>
+                    <li>Instalación y configuración de componentes</li>
+                </ul>
+            </div>
+        </div>
+        <div id="habilidades-blandas" class="card">
+            <h2>HABILIDADES BLANDAS</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Iniciativa y responsabilidad</li>
+                    <li>Trabajo en equipo y colaboración</li>
+                    <li>Atención al cliente y ventas</li>
+                    <li>Capacidad de aprendizaje rápido</li>
+                    <li>Adaptación a nuevos entornos</li>
+                </ul>
+            </div>
+        </div>
+        <div id="experiencia" class="card">
+            <h2>EXPERIENCIA</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Instalación de drivers de impresoras</li>
+                    <li>Solución de problemas básicos de redes</li>
+                    <li>Atención al cliente en uso de computadoras e impresoras</li>
+                    <li>Limpieza profunda de impresoras</li>
+                </ul>
+            </div>
+        </div>
+        <div id="servicios" class="card">
+            <h2>MIS SERVICIOS</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Digitalización de documentos</li>
+                    <li>Creación de presentaciones multimedia</li>
+                    <li>Reparación y mantenimiento de computadoras</li>
+                    <li>Optimización de rendimiento de computadoras y redes</li>
+                    <li>Asistencia a usuarios con problemas informáticos</li>
+                </ul>
+            </div>
+        </div>
+        <div id="contacto" class="card">
+            <h2>CONTACTO</h2>
+            <div class="card-content">
+                <p>¿Te interesa trabajar conmigo o simplemente quieres contactarme? ¡No dudes en hacerlo!</p>
+
+                                <a href="https://www.facebook.com/profile.php?id=100081635420569"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEh8ba6djUGj4C21tMttlAseJR9R0f_qx3UaRHTVmY9FNtsr-pMRrZ5L8G1odaElQHf8KQkL6VOjnpuljvDNKYgBzKAdbk9bwV1K8DIwPQqzNJB1yE0OuLpVSD7LdJijfYg3kHT_YTWohWkW7eI5e_oazu7Q3r0nxbCE-YS4IEoLFaAs9ZkiMkdoc8y36-s" alt="zulma"width="30px"height="30px"></a>
+                                <a href="https://wa.me/message/5EONAEIXS46ZC1"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEjvAOKAnaXOC-RMSPcDF4KlSNIQAdOGTE8J-thxLXAsaaEzucNzAUtHuPVJ3qqthUFKaV4i6a_PhJqyrCYwixEkxQea9ioIXtUpRtOFb58z9yLdGrxc8efIOtfnys-d91jvB1s-pYRRNwPuBdlEQ9pf8SbXaKBx8ML1p-lCmp1o3RRTNWwdQwPQrcfLGuA" alt="zulma"width="50px"height="30px"></a>
+                             
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.animationDelay = Math.random() * 2 + 's';
+            });
+        });
+        const cards = document.querySelectorAll('.card');
+    const colors = ['#34b0d2', '#f473b9', '#ffe119']; // Array of colors
+
+    function changeColor(card) {
+      const colorIndex = Math.floor(Math.random() * colors.length); // Random color
+      card.style.backgroundColor = colors[colorIndex];
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('mouseover', () => changeColor(card));
+      card.addEventListener('mouseout', () => card.style.backgroundColor = ''); // Reset color on mouseout
+    });
+    function setupCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+
+            function moveCarousel() {
+                currentIndex = (currentIndex + 1) % items.length;
+                inner.style.transform = `translateX(-${currentIndex * 16.66}%)`;
+            }
+
+            setInterval(moveCarousel, 3000);
+        }
+
+        setupCarousel('habilidades-carousel');
+        setupCarousel('intereses-carousel');
+    
+        function moveCarousel() {
+    currentIndex = (currentIndex + 1) % (items.length - 2); // Ajustado para 3 elementos visibles
+    inner.style.transform = `translateX(-${currentIndex * 33.33}%)`;
+}
+    </script>
+</body>
+</html>
